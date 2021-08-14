@@ -3,8 +3,10 @@
 // the WPILib BSD license file in the root directory of this project.
 
 #include "Robot.h"
+
 void Robot::RobotInit() {
 	myStick = new frc::Joystick(0);
+	myMotor = new rev::CANSparkMax(0, rev::CANSparkMaxLowLevel::MotorType::kBrushless);
 }
 void Robot::RobotPeriodic() {}
 
@@ -15,7 +17,7 @@ void Robot::TeleopInit() {
 	
 }
 void Robot::TeleopPeriodic() {
-	
+	myMotor->Set(myStick->GetY());
 }
 
 void Robot::DisabledInit() {}

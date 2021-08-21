@@ -8,9 +8,7 @@ void Robot::RobotInit() {
 	myStick = new frc::Joystick(0);
 	myRightMotor = new rev::CANSparkMax(3, rev::CANSparkMaxLowLevel::MotorType::kBrushless);
 	myLeftMotor = new rev::CANSparkMax(1, rev::CANSparkMaxLowLevel::MotorType::kBrushless);
-	int dz = 0.1;
-  	double m = 1/(1-dz);
-	double b = dz/(1-dz);
+
 }
 void Robot::RobotPeriodic() {}
 
@@ -21,7 +19,30 @@ void Robot::TeleopInit() {
 	
 }
 void Robot::TeleopPeriodic() {
-	myLeftMotor->Set(myStick->GetRawAxis(1));
+	const float dz = 0.15;
+  	const float m = 1/(1-dz);
+	const float b = dz/(1-dz);
+	float x;
+	float rawX;
+  	float y;
+	rawX = myStick->GetRawAxis(1);
+
+	x = fabs(rawX);
+	if (x>dz)
+	 {
+		y = std::copysignf((m*x-b), rawX);
+		//cout << y << std::endl; 
+
+	}
+	else
+	{
+		y=0;
+	}
+	frc::SmartDashboard::PutNumber("debug raw", rawX);
+	frc::SmartDashboard::PutNumber("debug abs raw", x);
+	frc::SmartDashboard::PutNumber("debug transfer", y);
+	myLeftMotor->Set(-y);
+	myRightMotor->Set(y);
 }
 
 void Robot::DisabledInit() {}

@@ -6,7 +6,11 @@
 
 void Robot::RobotInit() {
 	myStick = new frc::Joystick(0);
-	myMotor = new rev::CANSparkMax(0, rev::CANSparkMaxLowLevel::MotorType::kBrushless);
+	myRightMotor = new rev::CANSparkMax(3, rev::CANSparkMaxLowLevel::MotorType::kBrushless);
+	myLeftMotor = new rev::CANSparkMax(1, rev::CANSparkMaxLowLevel::MotorType::kBrushless);
+	int dz = 0.1;
+  	double m = 1/(1-dz);
+	double b = dz/(1-dz);
 }
 void Robot::RobotPeriodic() {}
 
@@ -17,7 +21,7 @@ void Robot::TeleopInit() {
 	
 }
 void Robot::TeleopPeriodic() {
-	myMotor->Set(myStick->GetY());
+	myLeftMotor->Set(myStick->GetRawAxis(1));
 }
 
 void Robot::DisabledInit() {}

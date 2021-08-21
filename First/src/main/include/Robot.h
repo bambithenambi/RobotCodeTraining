@@ -26,5 +26,8 @@ class Robot : public frc::TimedRobot {
   void TestPeriodic() override;
   
   frc::Joystick *myStick;
-  rev::CANSparkMax *myMotor;
+  rev::CANSparkMax *myLeftMotor;
+  rev::CANSparkMax *myRightMotor;
+  
+
 };

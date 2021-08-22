@@ -3,11 +3,10 @@
 // the WPILib BSD license file in the root directory of this project.
 
 #include "Robot.h"
-#include "Drive.h"
+
 
 
 void Robot::RobotInit() {
-  
 }
 void Robot::RobotPeriodic() {}
 
@@ -16,17 +15,7 @@ void Robot::AutonomousPeriodic() {}
 
 void Robot::TeleopInit() {}
 void Robot::TeleopPeriodic() {
-  /*
-  const float dz = 0.15;
-  const float m = 1/(1-dz);
-	const float b = dz/(1-dz);
-  float rawXSpeed, rawZRotation;
-  float xSpeed, zRotation;
-  rawXSpeed = -(stick->GetRawAxis(trigger_id));
-  rawZRotation = stick->GetRawAxis(steering_joystick_id);
-  */
-
-
+  drive.curvatureDrive();
 }
 
 void Robot::DisabledInit() {}

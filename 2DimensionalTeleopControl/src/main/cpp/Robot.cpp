@@ -4,7 +4,11 @@
 
 #include "Robot.h"
 
-void Robot::RobotInit() {}
+void Robot::RobotInit() {
+  stick = new frc::Joystick(0);
+  leftMotor = new rev::CANSparkMax(3, rev::CANSparkMax::MotorType::kBrushless);
+  rightMotor = new rev::CANSparkMax(3, rev::CANSparkMax::MotorType::kBrushless);
+}
 void Robot::RobotPeriodic() {}
 
 void Robot::AutonomousInit() {}

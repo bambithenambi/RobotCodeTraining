@@ -12,7 +12,7 @@ private:
     float throttleDZ, steerDZ;
     int l, r; //outputs
     bool invertThrottle, invertSteering;
-    const static float turnSensitivity = 1.0;
+    const float turnSensitivity = 1.0;
     float mQuickStopAccumulator;
 public:
     Drive(int controller_id, int throttle_axis_id, int steering_axis_id, int quick_turn_button_id, float throttle_dz, float steering_dz, bool invert_throttle, bool invert_steering);

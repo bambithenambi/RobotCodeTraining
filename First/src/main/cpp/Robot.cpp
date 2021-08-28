@@ -8,7 +8,6 @@ void Robot::RobotInit() {
 	myStick = new frc::Joystick(0);
 	myRightMotor = new rev::CANSparkMax(3, rev::CANSparkMaxLowLevel::MotorType::kBrushless);
 	myLeftMotor = new rev::CANSparkMax(1, rev::CANSparkMaxLowLevel::MotorType::kBrushless);
-
 }
 void Robot::RobotPeriodic() {}
 

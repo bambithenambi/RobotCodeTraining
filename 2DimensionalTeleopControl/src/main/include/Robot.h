@@ -5,9 +5,9 @@
 #pragma once
 #include "Drive.h"
 #include <frc/TimedRobot.h>
-#define throttle_axis_id 2
+#define throttle_axis_id 3
 #define steering_axis_id 0
-#define quick_turn_button_id 0
+#define quick_turn_button_id 1
 
 
 class Robot : public frc::TimedRobot {

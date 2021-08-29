@@ -57,7 +57,9 @@ void Drive::curvatureDrive()
     
     rawXSpeed = invert(rawXSpeed, invertThrottle);
     rawZRotation = invert(rawZRotation, invertSteering);
+    //speed squared for control
     xSpeed = handleDeadzone(rawXSpeed, throttleDZ);
+    xSpeed = xSpeed*fabs(xSpeed);
     zRotation = handleDeadzone(rawZRotation, steerDZ);
 
     float overPower;

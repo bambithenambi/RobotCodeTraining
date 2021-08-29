@@ -5,7 +5,7 @@
 #pragma once
 #include "Drive.h"
 #include <frc/TimedRobot.h>
-#define throttle_axis_id 3
+#define throttle_axis_id 5
 #define steering_axis_id 0
 #define quick_turn_button_id 1
 

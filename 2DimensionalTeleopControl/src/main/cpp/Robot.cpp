@@ -12,6 +12,7 @@ void Robot::RobotPeriodic() {}
 
 void Robot::AutonomousInit() {}
 void Robot::AutonomousPeriodic() {
+  drive.leftMotor->GetEncoder();
 }
 
 void Robot::TeleopInit() {}

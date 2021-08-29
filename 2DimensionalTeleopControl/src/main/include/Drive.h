@@ -5,9 +5,6 @@
 class Drive
 {
 private:
-    frc::Joystick *controller;
-    rev::CANSparkMax *leftMotor;
-    rev::CANSparkMax *rightMotor;
     int throttleID, steerID, quickTurnButtonID;
     float throttleDZ, steerDZ;
     int l, r; //outputs
@@ -15,6 +12,9 @@ private:
     const float turnSensitivity = 1.0;
     float mQuickStopAccumulator;
 public:
+    frc::Joystick *controller;
+    rev::CANSparkMax *leftMotor;
+    rev::CANSparkMax *rightMotor;
     Drive(int controller_id, int throttle_axis_id, int steering_axis_id, int quick_turn_button_id, float throttle_dz, float steering_dz, bool invert_throttle, bool invert_steering);
     float handleDeadzone(float input, float deadzone);
     inline float invert(float input, bool invert);
